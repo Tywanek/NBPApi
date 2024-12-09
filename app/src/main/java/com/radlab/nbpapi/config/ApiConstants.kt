@@ -1,4 +1,5 @@
 package com.radlab.nbpapi.config
 
-class ApiConstants {
+object ApiConstants {
+    const val BASE_URL = "https://api.nbp.pl/"
 }

@@ -6,14 +6,19 @@ import com.radlab.nbpapi.data.model.HistoricalRate
 
 class CurrencyRepository(private val api: NbpApi) {
 
-    suspend fun getExchangeRates(table: String): List<CurrencyRate> {
-        val response = api.getExchangeRates(table)
-        return response.firstOrNull()?.rates?.map {
-            it.copy(table = table)
-        } ?: emptyList()
+    suspend fun getExchangeRates(table: String): Result<List<CurrencyRate>> {
+        return runCatching {
+            api.getExchangeRates(table).firstOrNull()?.rates?.map { it.copy(table = table) }
+                ?: emptyList()
+        }
     }
 
-    suspend fun getCurrencyHistory(table: String, code: String): List<HistoricalRate> {
-        return api.getCurrencyHistory(table, code).rates.sortedByDescending { it.effectiveDate }
+    suspend fun getCurrencyHistory(table: String, code: String): Result<List<HistoricalRate>> {
+        return runCatching {
+            val history =
+                api.getCurrencyHistory(table, code).rates.sortedByDescending { it.effectiveDate }
+            history
+        }
     }
 }
+
