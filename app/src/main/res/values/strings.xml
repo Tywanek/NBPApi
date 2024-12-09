@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NBPApi</string>
+    <string name="list_title">Lista Walut</string>
+    <string name="no_data_info">Brak danych</string>
+    <string name="currency_details">%1$s (%2$s)</string>
+    <string name="go_back">Powrót</string>
+    <string name="calendar_date">Data: %1$s</string>
+    <string name="currency_exchange">Kurs: %1$s</string>
+    <string name="unknown">UNKNOWN</string>
+    <string name="nbp_base_url">https://api.nbp.pl/</string>
+    <string name="network_error">Network error: %1$s</string>
+    <string name="http_error">Unknown HTTP error</string>
+    <string name="unexpected_error">Unexpected error</string>
+    <string name="unknown_network_error">Unknown network error</string>
+    <string name="unknown_http_error">Unknown HTTP error</string>
+</resources>
